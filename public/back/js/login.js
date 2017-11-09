@@ -28,7 +28,9 @@ $(function(){
                         message: '用户名不能为空'
                     },
                 //    返回错误结果
-                    callback: '用户名错误'
+                    callback:{
+                        message: '用户名错误'
+                    }
                 }
             },
             password: {
@@ -45,10 +47,49 @@ $(function(){
                         message: '密码长度在6-12位之间'
                     },
                 //    返回错误结果
-                    callback: '密码错误'
+                    callback: {
+                        message:'密码错误'
+                    }
                 }
             }
         }
     })
 
-})
+//    给表单注册一个校验成功事件
+    $form.on('success.form.bv',function(e){
+        //阻止默认行为
+        e.preventDefault();
+        //console.log(1111);
+
+    //    使用ajax发送请求
+        $.ajax({
+            type:'post',
+            url: '/employee/employeeLogin',
+            data:$form.serialize(),
+            success:function(data){
+                //console.log(data);
+                //    判断  用户名和密码正确就跳转到登录页
+                if(data.success == true){
+                    location.href = "index.html";
+                }
+
+                if(data.error === 1000){
+                    //alert("用户名不存在")
+                    $form.data('bootstrapValidator').updateStatus("username","INVALID","callback");
+                }
+
+                if(data.error === 1001){
+                    //alert("密码错误")
+                    $form.data('bootstrapValidator').updateStatus("password","INVALID","callback");
+                }
+            }
+        })
+    });
+
+//    表单重置功能
+    $("[type='reset']").on('click',function(){
+        //console.log(111);
+        //获取表单校验实例
+        $form.data('bootstrapValidator').resetForm();
+    });
+});
