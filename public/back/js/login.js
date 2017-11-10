@@ -70,7 +70,7 @@ $(function(){
                 //console.log(data);
                 //    判断  用户名和密码正确就跳转到登录页
                 if(data.success == true){
-                    location.href = "index.js.html";
+                    location.href = "index.html";
                 }
 
                 if(data.error === 1000){
