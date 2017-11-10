@@ -63,7 +63,7 @@ $(function(){
     /*3删除记录*/
     $('.lt_history').on('tap','.mui-icon',function(){
         /*1.获取索引*/
-        var index = $(this).attr('data-index');
+        var index = $(this).attr('data-index.js');
         /*2.获取数据*/
         var arr = getHistoryData();
         /*3.删除数据*/

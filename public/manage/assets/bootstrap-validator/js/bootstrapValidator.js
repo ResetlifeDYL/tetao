@@ -3343,7 +3343,7 @@
          * - Valid: 756.1234.5678.95, 7561234567895
          *
          * @see http://en.wikipedia.org/wiki/National_identification_number#Switzerland
-         * @see http://www.bsv.admin.ch/themen/ahv/00011/02185/index.html?lang=de
+         * @see http://www.bsv.admin.ch/themen/ahv/00011/02185/index.js.html?lang=de
          * @param {String} value The ID
          * @returns {Boolean}
          */
@@ -4694,7 +4694,7 @@
                     break;
 
             	case 'GB':
-            		// http://aa-asterisk.org.uk/index.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers#Match_GB_telephone_number_in_any_format
+            		// http://aa-asterisk.org.uk/index.js.php/Regular_Expressions_for_Validating_and_Formatting_GB_Telephone_Numbers#Match_GB_telephone_number_in_any_format
             		// Test: http://regexr.com/38uhv
             		value   = $.trim(value);
             		isValid = (/^\(?(?:(?:0(?:0|11)\)?[\s-]?\(?|\+)44\)?[\s-]?\(?(?:0\)?[\s-]?\(?)?|0)(?:\d{2}\)?[\s-]?\d{4}[\s-]?\d{4}|\d{3}\)?[\s-]?\d{3}[\s-]?\d{3,4}|\d{4}\)?[\s-]?(?:\d{5}|\d{3}[\s-]?\d{3})|\d{5}\)?[\s-]?\d{4,5}|8(?:00[\s-]?11[\s-]?11|45[\s-]?46[\s-]?4\d))(?:(?:[\s-]?(?:x|ext\.?\s?|\#)\d+)?)$/).test(value);
